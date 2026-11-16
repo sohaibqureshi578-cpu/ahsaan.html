@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ehsan ❤️ Hizba - Hamari Mangni</title>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: Georgia, serif;
+	color: white;
+	background:
+		radial-gradient(circle at 10% 15%, #ff9fc7, transparent 35%),
+		radial-gradient(circle at 90% 80%, #a849a5, transparent 40%),
+		linear-gradient(135deg, #4b123e, #a32966, #e66e9c);
+	background-attachment: fixed;
+	overflow-x: hidden;
+}
+
+#hearts {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.heart {
+	position: absolute;
+	bottom: -50px;
+	color: #ffd2e4;
+	animation: floatUp linear infinite;
+	text-shadow: 0 0 12px pink;
+}
+
+@keyframes floatUp {
+	0% { transform: translateY(0) rotate(0); opacity: 0; }
+	15% { opacity: .9; }
+	100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: rgba(48, 5, 38, .85);
+	backdrop-filter: blur(12px);
+	padding: 18px;
+	text-align: center;
+	border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.logo {
+	font-size: 28px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.logo span {
+	color: #ffb5d2;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 9px;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	padding: 9px 13px;
+	border-radius: 25px;
+	background: rgba(255,255,255,.12);
+	font-size: 14px;
+	transition: .3s;
+}
+
+nav a:hover {
+	background: #fff;
+	color: #a32966;
+}
+
+section {
+	position: relative;
+	z-index: 1;
+	scroll-margin-top: 150px;
+}
+
+.hero {
+	min-height: 650px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 70px 20px;
+}
+
+.hero h1 {
+	font-size: clamp(45px, 8vw, 85px);
+	margin: 20px 0;
+	text-shadow: 0 5px 25px #420027;
+}
+
+.hero h1 span {
+	color: #ffb5d2;
+}
+
+.hero h2 {
+	color: #ffe2ed;
+	font-size: 25px;
+}
+
+.hero p {
+	max-width: 750px;
+	line-height: 2;
+	font-size: 19px;
+	margin: 20px auto;
+}
+
+.hero-photo {
+	width: min(320px, 85%);
+	height: 350px;
+	object-fit: cover;
+	border: 8px solid rgba(255,255,255,.5);
+	border-radius: 25px;
+	box-shadow: 0 15px 40px rgba(30,0,20,.4);
+	margin-top: 25px;
+}
+
+.button {
+	display: inline-block;
+	padding: 13px 25px;
+	background: white;
+	color: #a32966;
+	text-decoration: none;
+	border-radius: 30px;
+	font-weight: bold;
+	margin-top: 15px;
+	transition: .3s;
+}
+
+.button:hover {
+	transform: translateY(-4px);
+	background: #ffd6e7;
+}
+
+.card {
+	width: 88%;
+	max-width: 1000px;
+	margin: 55px auto;
+	padding: 45px 30px;
+	text-align: center;
+	background: rgba(62, 5, 48, .42);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255,255,255,.35);
+	border-radius: 28px;
+	box-shadow: 0 15px 40px rgba(30,0,20,.2);
+}
+
+.card h2 {
+	font-size: 35px;
+	color: #ffe0ed;
+	margin-bottom: 25px;
+}
+
+.card p {
+	font-size: 18px;
+	line-height: 2;
+	margin: 16px auto;
+	max-width: 800px;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 20px;
+	margin-top: 30px;
+}
+
+.gallery img,
+.gallery video {
+	width: 100%;
+	height: 280px;
+	object-fit: cover;
+	border: 4px solid rgba(255,255,255,.5);
+	border-radius: 20px;
+	box-shadow: 0 10px 25px rgba(30,0,20,.25);
+}
+
+.quote {
+	font-size: 25px !important;
+	font-style: italic;
+	color: #ffe1ed;
+}
+
+audio {
+	width: min(450px, 100%);
+	margin-top: 20px;
+}
+
+footer {
+	position: relative;
+	z-index: 1;
+	background: rgba(40,0,30,.6);
+	padding: 35px 15px;
+	text-align: center;
+	line-height: 2;
+	margin-top: 60px;
+}
+
+footer h2 {
+	font-size: 28px;
+}
+
+@media(max-width: 600px) {
+	header {
+		position: relative;
+	}
+
+	nav a {
+		font-size: 12px;
+		padding: 8px 10px;
+	}
+
+	.card {
+		padding: 30px 18px;
+	}
+
+	.card h2 {
+		font-size: 28px;
+	}
+
+	.hero {
+		min-height: 550px;
+	}
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<header>
+	<div class="logo">Ehsan <span>❤</span> Hizba</div>
+
+	<nav>
+		<a href="#home">Shuruat</a>
+		<a href="#story">Hamari Kahani</a>
+		<a href="#engagement">Mangni</a>
+		<a href="#ehsan">Ehsan</a>
+		<a href="#hizba">Hizba</a>
+		<a href="#memories">Yaadein</a>
+		<a href="#gallery">Tasveerein</a>
+		<a href="#ending">Aakhri Paigham</a>
+	</nav>
+</header>
+
+<!-- SHURUAT -->
+<section class="hero" id="home">
+	<h2>Ek Khoobsurat Rishte Ka Aaghaz</h2>
+	<h1>Ehsan <span>❤</span> Hizba</h1>
+	<h2>Do Dil, Ek Khoobsurat Rishta</h2>
+
+	<p>
+		Kuch rishte zindagi mein khushiyan ban kar aate hain.
+		Ehsan aur Hizba ka rishta bhi ek aisi hi khoobsurat
+		kahani hai. Jahan mohabbat, izzat, bharosa aur apnapan hai.
+	</p>
+
+	<img src="photo1.jpeg" class="hero-photo" alt="Ehsan aur Hizba">
+
+	<a href="#story" class="button">Hamari Kahani Dekhein</a>
+</section>
+
+<!-- KAHANI -->
+<section class="card" id="story">
+	<h2>Hamari Khoobsurat Kahani ❤</h2>
+
+	<p>
+		Har khoobsurat kahani ka apna ek aaghaz hota hai.
+		Kuch log zindagi mein aate hain aur dil mein apni
+		ek khaas jagah bana lete hain.
+	</p>
+
+	<p>
+		Ehsan aur Hizba ka rishta bhi ek aise hi khoobsurat
+		safar ka naam hai. Is kahani mein khushi ke lamhe,
+		pyari si muskurahatein aur ek doosre ke liye izzat hai.
+	</p>
+
+	<p>
+		Dua hai ke waqt ke saath ye rishta aur mazboot hota jaye.
+	</p>
+</section>
+
+<!-- MANGNI -->
+<section class="card" id="engagement">
+	<h2>Mangni Mubarak ❤</h2>
+
+	<p>
+		Mangni zindagi ka ek bohat khaas aur yaadgaar lamha hota hai.
+		Ye do logon ke naye safar ka khoobsurat aaghaz hai.
+	</p>
+
+	<p>
+		Ehsan aur Hizba ke liye ye din bohat si khushiyan,
+		umeedein aur pyari yaadein lekar aaya.
+	</p>
+
+	<p>
+		Allah Pak dono ke naseeb achhe kare, har mushkil asaan kare
+		aur is rishte ko hamesha khushiyon se bhara rakhe. Ameen.
+	</p>
+
+	<p class="quote">"Do dil mile, ek naya safar shuru hua." ❤</p>
+</section>
+
+<!-- EHSAN -->
+<section class="card" id="ehsan">
+	<h2>Ehsan Ke Naam ❤</h2>
+
+	<img src="images/photo2.jpeg" class="hero-photo" alt="Ehsan">
+
+	<p>
+		Ehsan, zindagi ka khoobsurat safar tab aur bhi haseen
+		ho jata hai jab insaan ke saath koi aisa ho jo uski
+		khushi ki wajah bane.
+	</p>
+
+	<p>
+		Hamesha apne rishte ko waqt dena, ek doosre ki baat
+		samajhna aur izzat karna.
+	</p>
+</section>
+
+<!-- HIZBA -->
+<section class="card" id="hizba">
+	<h2>Hizba Ke Naam ❤</h2>
+
+	<img src="photo2.jpeg" class="hero-photo" alt="Hizba">
+
+	<p>
+		Hizba, kuch log apni muskurahat se har lamhe ko
+		khoobsurat bana dete hain. Tumhari zindagi ka har
+		din khushiyon aur sukoon se bhara rahe.
+	</p>
+
+	<p>
+		Allah Pak tumhein duniya ki har jaiz khushi ata farmaye.
+		Hamesha muskurati raho. Ameen.
+	</p>
+</section>
+
+<!-- YAADEIN -->
+<section class="card" id="memories">
+	<h2>Hamari Pyari Yaadein ❤</h2>
+
+	<p>
+		Zindagi mein kuch lamhe aise hote hain jo hamesha
+		dil ke qareeb rehte hain. Un lamhon ko yaad karna
+		chehre par muskurahat le aata hai.
+	</p>
+
+	<p>
+		Dua hai ke Ehsan aur Hizba ke aane wale din bhi
+		aisi hi khoobsurat yaadon se bhare hon.
+	</p>
+
+	<p class="quote">"Kuch yaadein waqt ke saath aur bhi pyari ho jati hain."</p>
+</section>
+
+<!-- TASVEEREIN AUR VIDEOS -->
+<section class="card" id="gallery">
+	<h2>Hamari Tasveerein Aur Videos 📸</h2>
+
+	<p>Har tasveer aur har lamha ek pyari si yaad hai.</p>
+
+	<div class="gallery">
+		<img src="photo3.jpeg" alt="Tasveer 1">
+		<img src="photo4.jpeg" alt="Tasveer 2">
+		<img src="photo5.jpeg" alt="Tasveer 3">
+		<img src="photo6.jpeg" alt="Tasveer 4">
+
+		<video controls>
+			<source src="video1.mp4" type="video/mp4">
+		</video>
+
+		<video controls>
+			<source src="video2.mp4" type="video/mp4">
+		</video>
+	</div>
+</section>
+
+<!-- GAANA -->
+<section class="card">
+	<h2>Hamare Naam Ek Dhun 🎵</h2>
+
+	<p>
+		Ye gana hamare is khoobsurat safar ke naam.
+	</p>
+
+	<audio controls>
+		<source src="song.mp3
+" type="audio/mpeg">
+	</audio>
+</section>
+
+<!-- AAKHRI PAIGHAM -->
+<section class="card" id="ending">
+	<h2>Ehsan ❤ Hizba</h2>
+
+	<p>
+		Ye kahani yahan khatam nahi hoti, balkeh yahan se
+		ek naye safar ka aaghaz hota hai.
+	</p>
+
+	<p>
+		Zindagi ke har mor par ek doosre ka saath dena,
+		ek doosre ki izzat karna aur har khushi mil kar manana.
+	</p>
+
+	<p>
+		Allah Pak tum dono ke darmiyan hamesha mohabbat
+		aur samajh qayam rakhe. Har buri nazar se mehfooz
+		rakhe aur tumhare mustaqbil ko roshan kare.
+	</p>
+
+	<h2>💗 Mangni Mubarak Ehsan Aur Hizba 💗</h2>
+
+	<p class="quote">
+		"Mohabbat, bharosa aur hamesha ka saath."
+	</p>
+</section>
+
+<footer>
+	<h2>Ehsan ❤ Hizba</h2>
+	<p>Ek rishta, hazaar khushiyan.</p>
+	<p>Allah hamesha salamat rakhe. Ameen.</p>
+</footer>
+
+<script>
+const heartBox = document.getElementById("hearts");
+
+function createHeart() {
+	const heart = document.createElement("div");
+	heart.className = "heart";
+	heart.innerHTML = "❤";
+
+	heart.style.left = Math.random() * 100 + "%";
+	heart.style.fontSize = (15 + Math.random() * 25) + "px";
+	heart.style.animationDuration = (7 + Math.random() * 8) + "s";
+
+	heartBox.appendChild(heart);
+
+	setTimeout(() => {
+		heart.remove();
+	}, 16000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
